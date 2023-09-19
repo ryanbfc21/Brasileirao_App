@@ -32,6 +32,6 @@ namespace Brasileirao_App.Models
 
         public bool Ativo { get; set; }
 
-        public UF UFNavigation { get; set; }
+        public UF UF { get; set; }
     }
 }

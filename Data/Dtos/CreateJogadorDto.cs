@@ -1,13 +1,12 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using Brasileirao_App.Models;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
-namespace Brasileirao_App.Models
+namespace Brasileirao_App.Data.Dtos
 {
-    public class Jogador
+    public class CreateJogadorDto
     {
-        [Key]
-        public int Id { get; set; }
 
         [Required(ErrorMessage = "O campo Nome é obrigatório.")]
         [StringLength(100, ErrorMessage = "O campo Nome deve ter no máximo 100 caracteres.")]
@@ -27,10 +26,6 @@ namespace Brasileirao_App.Models
         [Required]
         [ForeignKey("Posicao")]
         public int IdPosicao { get; set; }
-
-        public virtual Time Time { get; set; }
-
-        public virtual Posicao Posicao { get; set; }
 
         public bool Lesionado { get; set; }
 

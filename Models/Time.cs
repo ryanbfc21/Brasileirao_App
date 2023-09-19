@@ -21,6 +21,6 @@ namespace Brasileirao_App.Models
         [ForeignKey("Estadio")]
         public int IdEstadio { get; set; }
 
-        public Estadio EstadioNavigation { get; set; }
+        public Estadio Estadio { get; set; }
     }
 }

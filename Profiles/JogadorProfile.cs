@@ -9,6 +9,8 @@ namespace Brasileirao_App.Profiles
         public JogadorProfile()
         {
             CreateMap<CreateJogadorDto, Jogador>();
+            CreateMap<Jogador, ReadJogadorDto>();
+            CreateMap<UpdateJogadorDto, Jogador>();
         }
     }
 }

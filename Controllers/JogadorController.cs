@@ -22,5 +22,59 @@ namespace Brasileirao_App.Controllers
             _repository.SalvarJogador(jogadorDto);
             return Ok();
         }
+
+        [HttpGet]
+        public IEnumerable<ReadJogadorDto> RecuperarJogadores([FromQuery] int skip = 0, [FromQuery] int take = 1000)
+        {
+            var listJogadores = _repository.ListarJogadores(skip, take);
+
+            return listJogadores;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult RecuperarJogadorPorId(int id)
+        {
+            var jogador = _repository.BuscarJogadorPorId(id);
+
+            if (jogador != null)
+            {
+                return Ok(jogador);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizarJogador(int id, [FromBody] UpdateJogadorDto filmeDto)
+        {
+            bool atualizado = _repository.AtualizarJogador(id, filmeDto);
+
+            if (atualizado)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeletarJogador(int id)
+        {
+            bool deletado = _repository.DeletarJogador(id);
+
+            if (deletado)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
     }
 }
